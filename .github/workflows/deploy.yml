@@ -32,13 +32,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'pnpm'
 
-      # 安装pnpm
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: latest
+      # 使用npm安装pnpm（更可靠的方式）
+      - name: Install pnpm using npm
+        run: npm install -g pnpm
 
       # 安装依赖
       - name: Install dependencies
