@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import ImageViewer from '@miletorix/vitepress-image-viewer'
 import DemoEditor from 'vitepress-demo-editor'
+import vitepressThemeDemoblock from 'vitepress-theme-demoblock'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -8,6 +9,11 @@ export default defineConfig({
     ImageViewer(),
     DemoEditor
   ],
+  markdown: {
+    config: (md) => {
+      vitepressThemeDemoblock(md)
+    }
+  },
   title: "Vina Design",
   base: "/VinaDesignSite/",
   description: "Vina 设计规范",

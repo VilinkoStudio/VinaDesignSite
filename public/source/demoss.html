@@ -1,0 +1,585 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=500, initial-scale=0.8">
+  <title>VERTEXUICOLOR 色卡</title>
+  <style>
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+      /* 禁止文本选择 */
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+    
+    /* 复制成功提示样式 */
+    .copy-tooltip {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    
+    .copy-tooltip.show {
+      opacity: 1;
+    }
+
+    .color-palette {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 280px;
+      background: white;
+    }
+
+    .header {
+      background: #6c5cC8; /* 主色 Lavender */
+      color: white;
+      padding: 12px 16px;
+      font-weight: bold;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .color-item {
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.2s ease;
+      position: relative;
+      transform: scale(1);
+      z-index: 1;
+    }
+    
+    /* 确保深色背景上的文本是白色 */
+    .color-item:nth-child(n+7) {
+      color: white;
+    }
+    
+    .color-item:nth-child(n+7) .color-code {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .color-item:last-child {
+      border-bottom: none;
+    }
+
+    .color-item:hover {
+      transform: scale(1.05);
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .color-swatch {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      margin-right: 12px;
+    }
+
+    .color-name {
+      font-size: 13px;
+      font-weight: 500;
+      flex-grow: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .color-code {
+      font-size: 13px;
+      color: #555;
+      font-weight: bold;
+      text-align: right;
+      min-width: 70px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .color-palette {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 左侧：主题色色卡 -->
+  <div class="color-palette">
+    <div class="header" style="background: #C9D7FF;">
+      <span>Contrast Ratio<br>1.5:1</span>
+      <span>Primary7 主题色</span>
+    </div>
+
+    <!-- 生成 10 个色阶，基于 #C9D7FF -->
+    <div class="color-item" style="background: #f8faff;">
+      <div class="color-swatch" style="background: #f8faff;"></div>
+      <span class="color-name">Primary1</span>
+      <span class="color-code">#f8faff</span>
+    </div>
+    <div class="color-item" style="background: #e8eeff;">
+      <div class="color-swatch" style="background: #e8eeff;"></div>
+      <span class="color-name">Primary2</span>
+      <span class="color-code">#e8eeff</span>
+    </div>
+    <div class="color-item" style="background: #d9e2ff;">
+      <div class="color-swatch" style="background: #d9e2ff;"></div>
+      <span class="color-name">Primary3</span>
+      <span class="color-code">#d9e2ff</span>
+    </div>
+    <div class="color-item" style="background: #cbd6ff;">
+      <div class="color-swatch" style="background: #cbd6ff;"></div>
+      <span class="color-name">Primary4</span>
+      <span class="color-code">#cbd6ff</span>
+    </div>
+    <div class="color-item" style="background: #bccaff;">
+      <div class="color-swatch" style="background: #bccaff;"></div>
+      <span class="color-name">Primary5</span>
+      <span class="color-code">#bccaff</span>
+    </div>
+    <div class="color-item" style="background: #adbfff;">
+      <div class="color-swatch" style="background: #adbfff;"></div>
+      <span class="color-name">Primary6</span>
+      <span class="color-code">#adbfff</span>
+    </div>
+    <div class="color-item" style="background: #C9D7FF;">
+      <div class="color-swatch" style="background: #C9D7FF;"></div>
+      <span class="color-name">Primary7</span>
+      <span class="color-code">#C9D7FF</span>
+    </div>
+    <div class="color-item" style="background: #a8b8e0;">
+      <div class="color-swatch" style="background: #a8b8e0;"></div>
+      <span class="color-name">Primary8</span>
+      <span class="color-code">#a8b8e0</span>
+    </div>
+    <div class="color-item" style="background: #8a9bc4;">
+      <div class="color-swatch" style="background: #8a9bc4;"></div>
+      <span class="color-name">Primary9</span>
+      <span class="color-code">#8a9bc4</span>
+    </div>
+    <div class="color-item" style="background: #6c7da8;">
+      <div class="color-swatch" style="background: #6c7da8;"></div>
+      <span class="color-name">Primary10</span>
+      <span class="color-code">#6c7da8</span>
+    </div>
+  </div>
+
+  <!-- 中间：强调色色卡 -->
+  <div class="color-palette">
+    <div class="header" style="background: #5279FB;">
+      <span>Contrast Ratio<br>4.7:1</span>
+      <span>Accent7 强调色</span>
+    </div>
+
+    <!-- 生成 10 个色阶，基于 #5279FB -->
+    <div class="color-item" style="background: #ebf0fe;">
+      <div class="color-swatch" style="background: #ebf0fe;"></div>
+      <span class="color-name">Accent1</span>
+      <span class="color-code">#ebf0fe</span>
+    </div>
+    <div class="color-item" style="background: #d0dbfd;">
+      <div class="color-swatch" style="background: #d0dbfd;"></div>
+      <span class="color-name">Accent2</span>
+      <span class="color-code">#d0dbfd</span>
+    </div>
+    <div class="color-item" style="background: #b5c6fb;">
+      <div class="color-swatch" style="background: #b5c6fb;"></div>
+      <span class="color-name">Accent3</span>
+      <span class="color-code">#b5c6fb</span>
+    </div>
+    <div class="color-item" style="background: #9ab1fa;">
+      <div class="color-swatch" style="background: #9ab1fa;"></div>
+      <span class="color-name">Accent4</span>
+      <span class="color-code">#9ab1fa</span>
+    </div>
+    <div class="color-item" style="background: #7faef8;">
+      <div class="color-swatch" style="background: #7faef8;"></div>
+      <span class="color-name">Accent5</span>
+      <span class="color-code">#7faef8</span>
+    </div>
+    <div class="color-item" style="background: #6499f7;">
+      <div class="color-swatch" style="background: #6499f7;"></div>
+      <span class="color-name">Accent6</span>
+      <span class="color-code">#6499f7</span>
+    </div>
+    <div class="color-item" style="background: #5279FB;">
+      <div class="color-swatch" style="background: #5279FB;"></div>
+      <span class="color-name">Accent7</span>
+      <span class="color-code">#5279FB</span>
+    </div>
+    <div class="color-item" style="background: #4566d0;">
+      <div class="color-swatch" style="background: #4566d0;"></div>
+      <span class="color-name">Accent8</span>
+      <span class="color-code">#4566d0</span>
+    </div>
+    <div class="color-item" style="background: #3853a5;">
+      <div class="color-swatch" style="background: #3853a5;"></div>
+      <span class="color-name">Accent9</span>
+      <span class="color-code">#3853a5</span>
+    </div>
+    <div class="color-item" style="background: #2b407a;">
+      <div class="color-swatch" style="background: #2b407a;"></div>
+      <span class="color-name">Accent10</span>
+      <span class="color-code">#2b407a</span>
+    </div>
+  </div>
+
+  <!-- 右侧：成功色色卡 -->
+  <div class="color-palette">
+    <div class="header" style="background: #1abc9c;">
+      <span>Contrast Ratio<br>5.8:1</span>
+      <span>Success7 成功色</span>
+    </div>
+
+    <!-- 生成 10 个色阶，基于 #1abc9c -->
+    <div class="color-item" style="background: #eafaf7;">
+      <div class="color-swatch" style="background: #eafaf7;"></div>
+      <span class="color-name">Success1</span>
+      <span class="color-code">#eafaf7</span>
+    </div>
+    <div class="color-item" style="background: #cdf3ea;">
+      <div class="color-swatch" style="background: #cdf3ea;"></div>
+      <span class="color-name">Success2</span>
+      <span class="color-code">#cdf3ea</span>
+    </div>
+    <div class="color-item" style="background: #b0ece0;">
+      <div class="color-swatch" style="background: #b0ece0;"></div>
+      <span class="color-name">Success3</span>
+      <span class="color-code">#b0ece0</span>
+    </div>
+    <div class="color-item" style="background: #93e5d5;">
+      <div class="color-swatch" style="background: #93e5d5;"></div>
+      <span class="color-name">Success4</span>
+      <span class="color-code">#93e5d5</span>
+    </div>
+    <div class="color-item" style="background: #76dec9;">
+      <div class="color-swatch" style="background: #76dec9;"></div>
+      <span class="color-name">Success5</span>
+      <span class="color-code">#76dec9</span>
+    </div>
+    <div class="color-item" style="background: #5ad7bf;">
+      <div class="color-swatch" style="background: #5ad7bf;"></div>
+      <span class="color-name">Success6</span>
+      <span class="color-code">#5ad7bf</span>
+    </div>
+    <div class="color-item" style="background: #1abc9c;">
+      <div class="color-swatch" style="background: #1abc9c;"></div>
+      <span class="color-name">Success7</span>
+      <span class="color-code">#1abc9c</span>
+    </div>
+    <div class="color-item" style="background: #159d84;">
+      <div class="color-swatch" style="background: #159d84;"></div>
+      <span class="color-name">Success8</span>
+      <span class="color-code">#159d84</span>
+    </div>
+    <div class="color-item" style="background: #107e6b;">
+      <div class="color-swatch" style="background: #107e6b;"></div>
+      <span class="color-name">Success9</span>
+      <span class="color-code">#107e6b</span>
+    </div>
+    <div class="color-item" style="background: #0c5f52;">
+      <div class="color-swatch" style="background: #0c5f52;"></div>
+      <span class="color-name">Success10</span>
+      <span class="color-code">#0c5f52</span>
+    </div>
+  </div>
+
+  <!-- 右侧：告警色色卡 -->
+  <div class="color-palette">
+    <div class="header" style="background: #fb8a55;">
+      <span>Contrast Ratio<br>4.1:1</span>
+      <span>Warning7 告警色</span>
+    </div>
+
+    <!-- 生成 10 个色阶，基于 #fb8a55 -->
+    <div class="color-item" style="background: #fef5f2;">
+      <div class="color-swatch" style="background: #fef5f2;"></div>
+      <span class="color-name">Warning1</span>
+      <span class="color-code">#fef5f2</span>
+    </div>
+    <div class="color-item" style="background: #fee7e0;">
+      <div class="color-swatch" style="background: #fee7e0;"></div>
+      <span class="color-name">Warning2</span>
+      <span class="color-code">#fee7e0</span>
+    </div>
+    <div class="color-item" style="background: #fdd9ce;">
+      <div class="color-swatch" style="background: #fdd9ce;"></div>
+      <span class="color-name">Warning3</span>
+      <span class="color-code">#fdd9ce</span>
+    </div>
+    <div class="color-item" style="background: #fccbbd;">
+      <div class="color-swatch" style="background: #fccbbd;"></div>
+      <span class="color-name">Warning4</span>
+      <span class="color-code">#fccbbd</span>
+    </div>
+    <div class="color-item" style="background: #fbbdae;">
+      <div class="color-swatch" style="background: #fbbdae;"></div>
+      <span class="color-name">Warning5</span>
+      <span class="color-code">#fbbdae</span>
+    </div>
+    <div class="color-item" style="background: #fab19c;">
+      <div class="color-swatch" style="background: #fab19c;"></div>
+      <span class="color-name">Warning6</span>
+      <span class="color-code">#fab19c</span>
+    </div>
+    <div class="color-item" style="background: #fb8a55;">
+      <div class="color-swatch" style="background: #fb8a55;"></div>
+      <span class="color-name">Warning7</span>
+      <span class="color-code">#fb8a55</span>
+    </div>
+    <div class="color-item" style="background: #d37447;">
+      <div class="color-swatch" style="background: #d37447;"></div>
+      <span class="color-name">Warning8</span>
+      <span class="color-code">#d37447</span>
+    </div>
+    <div class="color-item" style="background: #aa5e3a;">
+      <div class="color-swatch" style="background: #aa5e3a;"></div>
+      <span class="color-name">Warning9</span>
+      <span class="color-code">#aa5e3a</span>
+    </div>
+    <div class="color-item" style="background: #81482c;">
+      <div class="color-swatch" style="background: #81482c;"></div>
+      <span class="color-name">Warning10</span>
+      <span class="color-code">#81482c</span>
+    </div>
+  </div>
+
+  <!-- 右侧：错误色色卡 -->
+  <div class="color-palette">
+    <div class="header" style="background: #ff7377;">
+      <span>Contrast Ratio<br>3.8:1</span>
+      <span>Error7 错误色</span>
+    </div>
+
+    <!-- 生成 10 个色阶，基于 #ff7377 -->
+    <div class="color-item" style="background: #fff5f5;">
+      <div class="color-swatch" style="background: #fff5f5;"></div>
+      <span class="color-name">Error1</span>
+      <span class="color-code">#fff5f5</span>
+    </div>
+    <div class="color-item" style="background: #ffe7e7;">
+      <div class="color-swatch" style="background: #ffe7e7;"></div>
+      <span class="color-name">Error2</span>
+      <span class="color-code">#ffe7e7</span>
+    </div>
+    <div class="color-item" style="background: #ffd9d9;">
+      <div class="color-swatch" style="background: #ffd9d9;"></div>
+      <span class="color-name">Error3</span>
+      <span class="color-code">#ffd9d9</span>
+    </div>
+    <div class="color-item" style="background: #ffcbcb;">
+      <div class="color-swatch" style="background: #ffcbcb;"></div>
+      <span class="color-name">Error4</span>
+      <span class="color-code">#ffcbcb</span>
+    </div>
+    <div class="color-item" style="background: #ffbdbd;">
+      <div class="color-swatch" style="background: #ffbdbd;"></div>
+      <span class="color-name">Error5</span>
+      <span class="color-code">#ffbdbd</span>
+    </div>
+    <div class="color-item" style="background: #ffafaf;">
+      <div class="color-swatch" style="background: #ffafaf;"></div>
+      <span class="color-name">Error6</span>
+      <span class="color-code">#ffafaf</span>
+    </div>
+    <div class="color-item" style="background: #ff7377;">
+      <div class="color-swatch" style="background: #ff7377;"></div>
+      <span class="color-name">Error7</span>
+      <span class="color-code">#ff7377</span>
+    </div>
+    <div class="color-item" style="background: #d66164;">
+      <div class="color-swatch" style="background: #d66164;"></div>
+      <span class="color-name">Error8</span>
+      <span class="color-code">#d66164</span>
+    </div>
+    <div class="color-item" style="background: #ad4e51;">
+      <div class="color-swatch" style="background: #ad4e51;"></div>
+      <span class="color-name">Error9</span>
+      <span class="color-code">#ad4e51</span>
+    </div>
+    <div class="color-item" style="background: #843c3e;">
+      <div class="color-swatch" style="background: #843c3e;"></div>
+      <span class="color-name">Error10</span>
+      <span class="color-code">#843c3e</span>
+    </div>
+  </div>
+
+  <!-- 右侧：中性色色卡 -->
+  <div class="color-palette">
+    <div class="header" style="background: #282828;">
+      <span>Contrast Ratio<br>11.2:1</span>
+      <span>Neutral7 中性色</span>
+    </div>
+
+    <!-- 生成 10 个色阶，确保包含 #f5f5f5 和 #e1e1e1 -->
+    <div class="color-item" style="background: #ffffff;">
+      <div class="color-swatch" style="background: #ffffff;"></div>
+      <span class="color-name">Neutral1</span>
+      <span class="color-code">#ffffff</span>
+    </div>
+    <div class="color-item" style="background: #f5f5f5;">
+      <div class="color-swatch" style="background: #f5f5f5;"></div>
+      <span class="color-name">Neutral2</span>
+      <span class="color-code">#f5f5f5</span>
+    </div>
+    <div class="color-item" style="background: #ebebeb;">
+      <div class="color-swatch" style="background: #ebebeb;"></div>
+      <span class="color-name">Neutral3</span>
+      <span class="color-code">#ebebeb</span>
+    </div>
+    <div class="color-item" style="background: #e1e1e1;">
+      <div class="color-swatch" style="background: #e1e1e1;"></div>
+      <span class="color-name">Neutral4</span>
+      <span class="color-code">#e1e1e1</span>
+    </div>
+    <div class="color-item" style="background: #d7d7d7;">
+      <div class="color-swatch" style="background: #d7d7d7;"></div>
+      <span class="color-name">Neutral5</span>
+      <span class="color-code">#d7d7d7</span>
+    </div>
+    <div class="color-item" style="background: #b3b3b3;">
+      <div class="color-swatch" style="background: #b3b3b3;"></div>
+      <span class="color-name">Neutral6</span>
+      <span class="color-code">#b3b3b3</span>
+    </div>
+    <div class="color-item" style="background: #282828;">
+      <div class="color-swatch" style="background: #282828;"></div>
+      <span class="color-name">Neutral7</span>
+      <span class="color-code">#282828</span>
+    </div>
+    <div class="color-item" style="background: #212121;">
+      <div class="color-swatch" style="background: #212121;"></div>
+      <span class="color-name">Neutral8</span>
+      <span class="color-code">#212121</span>
+    </div>
+    <div class="color-item" style="background: #1a1a1a;">
+      <div class="color-swatch" style="background: #1a1a1a;"></div>
+      <span class="color-name">Neutral9</span>
+      <span class="color-code">#1a1a1a</span>
+    </div>
+    <div class="color-item" style="background: #0a0a0a;">
+      <div class="color-swatch" style="background: #0a0a0a;"></div>
+      <span class="color-name">Neutral10</span>
+      <span class="color-code">#0a0a0a</span>
+    </div>
+  </div>
+
+  <!-- 禁止复制和框选的JavaScript代码 -->
+  <script>
+    // 禁止右键菜单
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+    
+    // 禁止复制（但允许我们自己的复制功能）
+    document.addEventListener('copy', function(e) {
+      // 如果不是我们自定义的复制操作，则阻止
+      if (!window.customCopyAction) {
+        e.preventDefault();
+      }
+    });
+    
+    // 禁止剪切
+    document.addEventListener('cut', function(e) {
+      e.preventDefault();
+    });
+    
+    // 禁止粘贴
+    document.addEventListener('paste', function(e) {
+      e.preventDefault();
+    });
+    
+    // 禁止选择文本
+    document.addEventListener('selectstart', function(e) {
+      e.preventDefault();
+    });
+    
+    // 禁止拖拽
+    document.addEventListener('dragstart', function(e) {
+      e.preventDefault();
+    });
+    
+    // 点击复制色值功能
+    document.addEventListener('DOMContentLoaded', function() {
+      const colorItems = document.querySelectorAll('.color-item');
+      
+      colorItems.forEach(item => {
+        item.addEventListener('click', function() {
+          // 获取色值
+          const colorCode = this.querySelector('.color-code').textContent;
+          
+          // 创建临时元素来复制文本
+          const tempInput = document.createElement('input');
+          tempInput.value = colorCode;
+          tempInput.style.position = 'absolute';
+          tempInput.style.opacity = '0';
+          document.body.appendChild(tempInput);
+          
+          // 启用自定义复制操作标志
+          window.customCopyAction = true;
+          
+          // 选择并复制文本
+          tempInput.select();
+          document.execCommand('copy');
+          
+          // 清理
+          document.body.removeChild(tempInput);
+          window.customCopyAction = false;
+          
+          // 添加点击反馈效果
+          this.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            this.style.transform = 'scale(1)';
+          }, 100);
+          
+          // 显示复制成功提示
+          let tooltip = document.querySelector('.copy-tooltip');
+          if (!tooltip) {
+            tooltip = document.createElement('div');
+            tooltip.className = 'copy-tooltip';
+            document.body.appendChild(tooltip);
+          }
+          
+          // 设置动态提示文本，包含被复制的颜色代码
+          tooltip.textContent = `成功复制【${colorCode}】`;
+          tooltip.classList.add('show');
+          
+          setTimeout(() => {
+            tooltip.classList.remove('show');
+          }, 1500);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
