@@ -55,4 +55,4 @@ VinaDesignSite 是用于展示 Vina Design 价值观和设计体系的仓库， 
 <br>
 
 ## 开源协议
-Vina Design 使用 [MIT 协议](./LICENSE)。
+Vina Design 使用 MIT 协议。
