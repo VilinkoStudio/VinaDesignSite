@@ -9,6 +9,7 @@ export default defineConfig({
     DemoEditor
   ],
   title: "Vina Design",
+  base: "/VinaDesignSite/",
   description: "Vina 设计规范",
   head: [
     ['link', { rel: 'icon', href: '/source/ph/logo.png' }]
