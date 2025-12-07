@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@miletorix/vitepress-image-viewer':
+        specifier: ^1.1.4
+        version: 1.1.4(vue@3.5.25)
       vitepress-demo-editor:
         specifier: ^3.2.1
         version: 3.2.1(@vue/babel-plugin-jsx@2.0.1(@babel/core@7.28.5))(@vue/runtime-core@3.5.25)(@vue/runtime-dom@3.5.25)(vitepress@1.6.4(@algolia/client-search@5.46.0)(postcss@8.5.6)(search-insights@2.17.3))(vue@3.5.25)
@@ -397,6 +400,11 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
+
+  '@miletorix/vitepress-image-viewer@1.1.4':
+    resolution: {integrity: sha512-EeB7Ry5M1/r+lceVPLiO1owu73hd/0+SK41iS58Gd/U08xL4nATbIKmyvl7kQj6lycu5H29YFzeOkiJN2mKPxA==}
+    peerDependencies:
+      vue: ^3.0.0
 
   '@rollup/rollup-android-arm-eabi@4.53.3':
     resolution: {integrity: sha512-mRSi+4cBjrRLoaal2PnqH82Wqyb+d3HsPUN/W+WslCXsZsyHa9ZeQQX/pQsZaVIWDkPcpV6jJ+3KLbTbgnwv8w==}
@@ -1409,6 +1417,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
+
+  '@miletorix/vitepress-image-viewer@1.1.4(vue@3.5.25)':
+    dependencies:
+      vue: 3.5.25
 
   '@rollup/rollup-android-arm-eabi@4.53.3':
     optional: true

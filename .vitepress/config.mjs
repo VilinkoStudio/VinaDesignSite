@@ -1,14 +1,25 @@
 import { defineConfig } from 'vitepress'
+import ImageViewer from '@miletorix/vitepress-image-viewer'
+import DemoEditor from 'vitepress-demo-editor'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  plugins: [
+    ImageViewer(),
+    DemoEditor
+  ],
   title: "Vina Design",
   description: "Vina 设计规范",
+  head: [
+    ['link', { rel: 'icon', href: '/source/ph/logo.png' }]
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    logo: '/source/ph/logo.png',
     nav: [
       { text: '首页', link: '/' },
-      { text: '设计', link: '/docs/design/values' },
+      { text: '价值观', link: '/docs/design/values' },
+      { text: '设计', link: '/docs/design/color' },
       { text: '实践', link: '/docs/practice/' },
       { text: '关于', link: '/docs/about/' },
     ],

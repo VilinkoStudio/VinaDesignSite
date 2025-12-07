@@ -8,6 +8,7 @@
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
+    "@miletorix/vitepress-image-viewer": "^1.1.4",
     "vitepress-demo-editor": "^3.2.1"
   }
 }
