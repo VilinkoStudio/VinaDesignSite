@@ -35,6 +35,7 @@ export default defineConfig({
       provider: "local",
       options: {
         enablePhraseSearch: true,
+        exclude: ['README.md'],
         translations: {
           button: {
             buttonText: "搜索",
