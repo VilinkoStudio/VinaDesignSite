@@ -39,4 +39,4 @@ prev: false
 我们更推荐在仓库中提交问题和进行技术交流，这有助于让遇到相似问题的开发者能够直接看到讨论并参与解决。如果您发现了 Bug，或有新功能建议，欢迎在对应技术栈实现的仓库中提交 Issue。
 
 ### 邮箱联系
-您可以通过 [mailto:contact@vilinko.com](mailto:contact@vilinko.com) 联系我们。
+您可以通过 [contact@vilinko.com](mailto:contact@vilinko.com) 联系我们。
