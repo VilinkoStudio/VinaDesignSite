@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import ImageViewer from '@miletorix/vitepress-image-viewer'
 import DemoEditor from 'vitepress-demo-editor'
 import vitepressThemeDemoblock from 'vitepress-theme-demoblock'
+import { colorPreviewPlugin, colorPreviewTransformer } from 'vitepress-plugin-color-preview'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -12,7 +13,9 @@ export default defineConfig({
   markdown: {
     config: (md) => {
       vitepressThemeDemoblock(md)
-    }
+      md.use(colorPreviewPlugin)
+    },
+    codeTransformers: [colorPreviewTransformer()]
   },
   title: "Vina Design",
   base: "/VinaDesignSite/",
