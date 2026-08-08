@@ -3,9 +3,15 @@ import ImageViewer from '@miletorix/vitepress-image-viewer'
 import DemoEditor from 'vitepress-demo-editor'
 import vitepressThemeDemoblock from 'vitepress-theme-demoblock'
 import { colorPreviewPlugin, colorPreviewTransformer } from 'vitepress-plugin-color-preview'
+import { componentViewMarkdownPlugin } from 'vitepress-plugin-component'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  vite: {
+    ssr: {
+      noExternal: ['vitepress-plugin-component']
+    }
+  },
   plugins: [
     ImageViewer(),
     DemoEditor
@@ -14,6 +20,7 @@ export default defineConfig({
     config: (md) => {
       vitepressThemeDemoblock(md)
       md.use(colorPreviewPlugin)
+      md.use(componentViewMarkdownPlugin)
     },
     codeTransformers: [colorPreviewTransformer()]
   },

@@ -5,6 +5,7 @@ import ImageViewerP from '@miletorix/vitepress-image-viewer'
 import '@miletorix/vitepress-image-viewer/style.css'
 import 'vitepress-theme-demoblock/dist/theme/styles/index.css'
 import { setupColorPreview } from 'vitepress-plugin-color-preview/client'
+import { enhanceAppWithComponentView } from 'vitepress-plugin-component/client'
 import 'vitepress-plugin-color-preview/style.css'
 import './style.css'
 
@@ -12,6 +13,7 @@ import './style.css'
 export default {
   enhanceApp(ctx) {
     ImageViewerP(ctx.app)
+    enhanceAppWithComponentView(ctx.app)
     DefaultTheme.enhanceApp(ctx)
   },
   extends: DefaultTheme,
