@@ -11,6 +11,7 @@
   "dependencies": {
     "@miletorix/vitepress-image-viewer": "^1.1.4",
     "vitepress-demo-editor": "^3.2.1",
+    "vitepress-plugin-color-preview": "^0.4.1",
     "vitepress-theme-demoblock": "^3.1.3"
   }
 }
