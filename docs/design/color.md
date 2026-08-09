@@ -41,3 +41,39 @@ Vina Design 色板包含功能色和中性色两个部分。
 :::colors-strip
 #ffffff #f5f5f5 #ebebeb #e1e1e1 #d7d7d7 #b3b3b3 #282828 #212121 #1a1a1a #0a0a0a
 :::
+
+### 带有品牌色倾向的中性色
+在部分应用场景中，需要在各层级的灰黑色中加入颜色倾向，来突出品牌氛围。在此过程中使用了 HSL 色彩模型，通过将品牌色相以极低饱和度注入中性色的明度通道中，生成一组品牌化中性色。与直接使用 RGB 混色模型不同，HSL 方式能够在不破坏原始明度梯度的前提下，仅赋予色彩倾向，确保颜色自然。经过多次尝试，最终确定品牌色的色彩倾向强度系数为 6% ，该组色彩运用规则同普通中性色一致，所有色值对比度均满足 WCAG 2.1 标准（≥ 4.5），兼具品牌识别度与无障碍可用性。
+
+:::colors-strip
+#ebf0fe #d0dbfd #b5c6fb #9ab1fa #7faef8 #6499f7 #5279fb #4566d0 #3853af #2b407a
+:::
+
+:::colors-strip
+#ffffff #f5f5f5 #ebebeb #e1e1e1 #d7d7d7 #b3b3b3 #282828 #212121 #1a1a1a #0a0a0a
+:::
+
+<p align="center"> ↓ </p>
+
+:::colors-strip
+#f7f8fc #edf0f7 #e3e6f2 #d9dded #cfd4e8 #b7bddb #2f3145 #282a3d #212335 #14152a
+:::
+
+### 扩展色
+扩展色是一系列由功能色扩展而成的颜色，使用在有更多颜色需求的场景中。扩展色采用了 HSL 及插值拟合曲线的方法，除了功能色蓝、红、黄、绿之外，VinaDesign 色彩体系扩展至 8 种主要颜色，另外有紫色，蓝色、黄色、粉红色扩展色。
+
+:::colors-strip
+#f5f2ff #e8e0ff #d6c9fd #c2b0f5 #ac94eb #9478dd #6b3fd9 #5633b0 #412788 #2c1b60
+:::
+
+:::colors-strip
+#eff6ff #e0efff #cce3fd #b5d4f5 #9cc3eb #80b0dd #1a5cb8 #144a99 #0e387a #08265b
+:::
+
+:::colors-strip
+#fffdf0 #fffae6 #fef5cd #fdf0b3 #fce899 #f5dd7a #c4a01a #9e8015 #78600f #52400a
+:::
+
+:::colors-strip
+#fff2f5 #ffe8f0 #fdd0df #f5b8cd #eb9db9 #dd80a4 #b82f66 #992552 #7a1b3e #5c112a
+:::
