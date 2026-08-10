@@ -66,16 +66,16 @@
   --vp-c-tip-3: #3251c3;
   --vp-c-tip-soft: rgba(82, 121, 251, 0.1);
 
-  /* 修改warning颜色为#f0753c */
-  --vp-c-warning-1: #f0753c;
-  --vp-c-warning-2: #d96934;
-  --vp-c-warning-3: #c25d2c;
+  /* 修改warning颜色 */
+  --vp-c-warning-1: #f48d6e;
+  --vp-c-warning-2: #e0744c;
+  --vp-c-warning-3: #c95b34;
   --vp-c-warning-soft: rgba(240, 117, 60, 0.1);
 
   /* 修改danger颜色 */
-  --vp-c-danger-1: #e64c4f;
-  --vp-c-danger-2: #d34346;
-  --vp-c-danger-3: #c03a3d;
+  --vp-c-danger-1: #ff7878;
+  --vp-c-danger-2: #e35d5d;
+  --vp-c-danger-3: #c94242;
   --vp-c-danger-soft: rgba(230, 76, 79, 0.1);
 }
 
